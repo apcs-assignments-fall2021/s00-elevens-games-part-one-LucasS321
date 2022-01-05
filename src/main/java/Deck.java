@@ -16,6 +16,13 @@ public class Deck {
 	// You will need to initialize both the cardsList and size instance variables
 	// You should go through and make all possible pairs of suits and ranks
 	public Deck(String[] ranks, String[] suits, int[] values) {
+		cardsList = new ArrayList<Card>();
+		for(String x: suits) {
+			for (int y = 0; y < ranks.length; y++) {
+				cardsList.add(new Card(ranks[y],x,values[y]));
+			}
+		}
+		size = cardsList.size();
 		// YOUR CODE HERE
 		// // Remember, in a constructor you need to first create the ArrayList for the instance variable!
 	}
@@ -25,20 +32,22 @@ public class Deck {
 	// Updates the size as well
 	public Card deal() {
 		// YOUR CODE HERE
-        return null;
+		Card card = cardsList.get(size-1);
+		size -= 1;
+        return card;
 	}
 
 	// Determines if this deck is empty (there are no undealt cards).
 	// returns true if this deck is empty, false otherwise.
 	public boolean isEmpty() {
 		// YOUR CODE HERE
-		return false;
+		return size == 0;
 	}
 
 	// Returns the size (number of undealt cards) in this deck.
 	public int getSize() {
 		// YOUR CODE HERE
-		return -1;
+		return size;
 	}
 
 	// Shuffles the deck by repeatedly randomly swapping pairs of cards
