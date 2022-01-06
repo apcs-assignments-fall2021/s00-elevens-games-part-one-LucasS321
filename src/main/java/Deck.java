@@ -32,9 +32,13 @@ public class Deck {
 	// Updates the size as well
 	public Card deal() {
 		// YOUR CODE HERE
-		Card card = cardsList.get(size-1);
-		size -= 1;
-        return card;
+		if (size != 0) {
+			Card card = cardsList.get(size - 1);
+			size -= 1;
+			return card;
+		} else {
+			return null;
+		}
 	}
 
 	// Determines if this deck is empty (there are no undealt cards).
@@ -54,6 +58,11 @@ public class Deck {
 	// This method should change the order of the cards in cardsList
 	// Shuffling should also reset the size variable to its original value
 	public void shuffle() {
+		ArrayList<Card> cardsList2 = new ArrayList<Card>();
+		for (Card x: cardsList) {
+			cardsList2.add((int) (Math.random()*(cardsList2.size())), x);
+		}
+		cardsList = cardsList2;
 		// YOUR CODE HERE
 	}
 
