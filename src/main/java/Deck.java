@@ -63,6 +63,7 @@ public class Deck {
 			cardsList2.add((int) (Math.random()*(cardsList2.size())), x);
 		}
 		cardsList = cardsList2;
+		size = cardsList.size();
 		// YOUR CODE HERE
 	}
 
